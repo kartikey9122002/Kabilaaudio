@@ -8,14 +8,16 @@ import KabilaLogo from './KabilaLogo';
 export default function Footer() {
   const musicians = [
     {
-      name: 'Pawan Sharma',
-      role: 'Sound Engineer',
-      image: '/placeholder-user.jpg',
+      name: 'Himanshu Rawat',
+      role: 'Multi-Genre Music Producer',
+      image: '/himanshu.jpeg',
+      alt: 'Himanshu Rawat - Multi-Genre Music Producer',
     },
     {
-      name: 'Himanshu Rawat',
-      role: 'Multi-Genre Sound Producer',
-      image: '/placeholder-user.jpg',
+      name: 'Pawan Sharma',
+      role: 'Sound Engineer',
+      image: '/pawan.jpeg',
+      alt: 'Pawan Sharma - Sound Engineer',
     },
   ];
 
@@ -162,20 +164,17 @@ export default function Footer() {
             {musicians.map((musician, index) => (
               <div
                 key={index}
-                className="flex-1 bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-col sm:flex-row items-center sm:items-center gap-5 hover:border-indigo-400/30 transition-all duration-300 hover:bg-white/[0.07]"
+                className="flex-1 bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-row items-center gap-5 hover:border-indigo-400/30 transition-all duration-300 hover:bg-white/[0.07]"
               >
                 {/* Circular Profile Image */}
-                <Image
+                <img
                   src={musician.image}
-                  alt={musician.name}
-                  width={96}
-                  height={96}
-                  unoptimized
-                  className="rounded-full w-24 h-24 object-cover border-2 border-indigo-400/30 shrink-0 shadow-[0_0_15px_rgba(99,102,241,0.25)]"
+                  alt={musician.alt}
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-white/20 shadow-lg shrink-0"
                 />
 
                 {/* Info */}
-                <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                <div className="flex flex-col items-start text-left">
                   <h3 className="font-extrabold text-lg text-white font-heading tracking-wide">
                     {musician.name}
                   </h3>

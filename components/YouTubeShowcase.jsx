@@ -2,111 +2,59 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Youtube, Eye, Clapperboard } from 'lucide-react';
+import { Youtube, Clapperboard, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const YOUTUBE_ITEMS = [
-  {
-    id: 1,
-    title: 'Studio Hub Vlog — Behind The Boards',
-    subtitle: 'Full Ableton & SSL 9000J Console Workflow Breakdown',
-    category: 'Studio Breakdowns',
-    views: '850K Views',
-    badge: 'Official Studio Vlog',
-    youtubeEmbedUrl: 'https://www.youtube.com/embed/videoseries?list=PLpgDJaGurXAlF8jR3WyZG5FektozSIt4T',
-  },
-  {
-    id: 2,
-    title: 'Beat Breakdown — Multi-Platinum Hit Production',
-    subtitle: 'Trap & Cinematic Synth Sound Design Masterclass',
-    category: 'Official Music Videos',
-    views: '1.2M Views',
-    badge: 'Beat Breakdown',
-    youtubeEmbedUrl: 'https://www.youtube.com/embed/videoseries?list=PLpgDJaGurXAlF8jR3WyZG5FektozSIt4T',
-  },
-  {
-    id: 3,
-    title: 'Behind the Boards — Executive Stem Mixing',
-    subtitle: 'Neve 1073 Harmonic Warmth & Tube Compression Shootout',
-    category: 'Studio Breakdowns',
-    views: '980K Views',
-    badge: 'Masterclass Session',
-    youtubeEmbedUrl: 'https://www.youtube.com/embed/videoseries?list=PLpgDJaGurXAlF8jR3WyZG5FektozSIt4T',
-  },
-  {
-    id: 4,
-    title: 'Analog Hardware Showcase — Prophet-6 & Moog Modular',
-    subtitle: 'Synthesizer Vault & Floating Vocal Sanctuary Tour',
-    category: 'Studio Breakdowns',
-    views: '650K Views',
-    badge: 'Gear Breakdown',
-    youtubeEmbedUrl: 'https://www.youtube.com/embed/videoseries?list=PLpgDJaGurXAlF8jR3WyZG5FektozSIt4T',
-  },
-  {
-    id: 5,
-    title: 'Dolby Atmos Spatial Mastering & 808 Architecture',
-    subtitle: 'Precision PMC 7.1.4 Monitoring & Stem Separation',
-    category: 'Official Music Videos',
-    views: '1.4M Views',
-    badge: 'Spatial Masterclass',
-    youtubeEmbedUrl: 'https://www.youtube.com/embed/videoseries?list=PLpgDJaGurXAlF8jR3WyZG5FektozSIt4T',
-  },
+const featuredVideos = [
+  { id: 1, youtubeId: 'L5x2svfZNP8' },
+  { id: 2, youtubeId: '0QiKbE0bZTE' },
+  { id: 3, youtubeId: '3gtzU2Ci0jo' },
+  { id: 4, youtubeId: 'Xi96vTGm-Ww' },
+  { id: 5, youtubeId: 'cFeMtFEc6SU' },
+  { id: 6, youtubeId: 'zFyquKD9E0g' },
+  { id: 7, youtubeId: 'QU45SpsttlY' },
+  { id: 8, youtubeId: 'WUgNAKypVpc' },
+  { id: 9, youtubeId: 'VJAhIcWV0zg' },
+  { id: 10, youtubeId: 'xKv3z8vaK8k' },
+  { id: 11, youtubeId: 'EJj-WkASnn0' },
+  { id: 12, youtubeId: 'NDfO56NEzmQ' },
+  { id: 13, youtubeId: 'PHQAeT-Zalw' },
+  { id: 14, youtubeId: 'r7DQTpMC0so' },
+  { id: 15, youtubeId: '0IArKB8yjrI' },
+  { id: 16, youtubeId: 'by-BSdpj0SY' },
+  { id: 17, youtubeId: 'yjjFivlK8BQ' },
+  { id: 18, youtubeId: 'Hlvy8_pc3s4' },
+  { id: 19, youtubeId: 'jbPLWNxwM9w' },
 ];
 
-const CATEGORIES = ['All', 'Official Music Videos', 'Studio Breakdowns'];
-
 export default function YouTubeShowcase() {
-  const [activeTab, setActiveTab] = useState('All');
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const filteredItems = activeTab === 'All'
-    ? YOUTUBE_ITEMS
-    : YOUTUBE_ITEMS.filter((item) => item.category === activeTab);
-
-  const totalItems = filteredItems.length;
+  const totalVideos = featuredVideos.length;
 
   return (
     <section id="videos" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto scroll-mt-24 overflow-hidden">
       {/* Section Header */}
       <div className="text-center mb-8 space-y-4">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold text-blue-300 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
-          <Youtube className="w-4 h-4 text-blue-400" />
-          Visual Breakdown & Vlogs
+          <Youtube className="w-4 h-4 text-red-400 animate-pulse" />
+          Official Video Showcase • 19 Releases
         </div>
+
         <h2 className="font-extrabold text-3xl sm:text-5xl text-white tracking-tight font-heading">
           YOUTUBE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-indigo-200 to-white">WATERFALL SHOWCASE</span>
         </h2>
-        <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto font-sans">
-          Explore official music videos, studio session breakdowns, analog gear shootouts, and multi-platinum beat tutorials. Swipe left or right to explore.
-        </p>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                setActiveTab(cat);
-                setCurrentIndex(0);
-              }}
-              className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
-                activeTab === cat
-                  ? 'bg-white text-indigo-950 shadow-[0_0_20px_rgba(165,180,252,0.4)] scale-105'
-                  : 'bg-white/10 hover:bg-white/20 text-gray-200 border border-white/20'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto font-sans">
+          Explore official music videos, studio session breakdowns, analog gear shootouts, and multi-platinum beat tutorials. Drag or swipe cards to explore.
+        </p>
       </div>
 
       {/* 3D Coverflow Perspective Container with Drag Swipe */}
-      <div className="relative flex justify-center items-center h-[520px] w-full [perspective:1000px] my-4 select-none">
-        {filteredItems.map((item, index) => {
+      <div className="relative flex justify-center items-center h-[340px] sm:h-[360px] md:h-[380px] w-full [perspective:1000px] my-6 select-none">
+        {featuredVideos.map((video, index) => {
           // Calculate relative circular distance from currentIndex
           let diff = index - currentIndex;
-          if (diff > totalItems / 2) diff -= totalItems;
-          if (diff < -totalItems / 2) diff += totalItems;
+          if (diff > totalVideos / 2) diff -= totalVideos;
+          if (diff < -totalVideos / 2) diff += totalVideos;
 
           // Compute 3D Transform attributes strictly according to Coverflow mechanics
           let zIndex = 10;
@@ -127,28 +75,28 @@ export default function YouTubeShowcase() {
             // Card to the Left
             zIndex = 20;
             scale = 0.85;
-            rotateY = 30;
-            opacity = 0.6;
-            x = '-60%';
+            rotateY = 25;
+            opacity = 0.5;
+            x = '-65%';
           } else if (diff === 1) {
             // Card to the Right
             zIndex = 20;
             scale = 0.85;
-            rotateY = -30;
-            opacity = 0.6;
-            x = '60%';
+            rotateY = -25;
+            opacity = 0.5;
+            x = '65%';
           } else {
             // Hidden Cards further out
             zIndex = 10;
             scale = 0.6;
-            rotateY = diff < 0 ? 45 : -45;
+            rotateY = diff < 0 ? 40 : -40;
             opacity = 0;
-            x = diff < 0 ? '-120%' : '120%';
+            x = diff < 0 ? '-130%' : '130%';
           }
 
           return (
             <motion.div
-              key={item.id}
+              key={video.id}
               onClick={() => {
                 if (!isCenter) setCurrentIndex(index);
               }}
@@ -159,10 +107,10 @@ export default function YouTubeShowcase() {
                 const swipeThreshold = 50;
                 if (offset.x < -swipeThreshold) {
                   // Swiped Left -> Next Slide
-                  setCurrentIndex((prev) => (prev + 1) % totalItems);
+                  setCurrentIndex((prev) => (prev + 1) % totalVideos);
                 } else if (offset.x > swipeThreshold) {
                   // Swiped Right -> Previous Slide
-                  setCurrentIndex((prev) => (prev - 1 + totalItems) % totalItems);
+                  setCurrentIndex((prev) => (prev - 1 + totalVideos) % totalVideos);
                 }
               }}
               animate={{
@@ -180,40 +128,35 @@ export default function YouTubeShowcase() {
                 isCenter ? 'cursor-grab active:cursor-grabbing pointer-events-auto' : 'cursor-pointer pointer-events-auto'
               }`}
             >
-              <div className="glass-card rounded-3xl p-5 border border-white/20 shadow-[0_15px_45px_rgba(0,0,0,0.6)] bg-white/10 backdrop-blur-xl relative overflow-hidden group">
+              <div className="bg-white/5 backdrop-blur-md rounded-3xl sm:rounded-[32px] md:rounded-[36px] p-5 sm:p-6 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.65)] relative overflow-hidden group">
                 {/* Header Tag / Badge */}
                 <div className="flex items-center justify-between mb-3.5">
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-extrabold bg-indigo-500/20 text-indigo-200 border border-indigo-400/40 shadow-sm">
                     <Clapperboard className="w-3 h-3 text-blue-300" />
-                    {item.badge}
+                    Video {video.id < 10 ? `0${video.id}` : video.id} / 19
                   </span>
-                  <span className="text-xs text-gray-300 font-semibold flex items-center gap-1">
-                    <Eye className="w-3.5 h-3.5 text-blue-300" /> {item.views}
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider font-heading">
+                    Official Studio Release
                   </span>
                 </div>
 
-                {/* Video Title & Subtitle */}
-                <h3 className="font-extrabold text-lg text-white mb-1 font-heading group-hover:text-blue-300 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-gray-300 mb-4 font-sans">
-                  {item.subtitle}
-                </p>
-
-                {/* Responsive Embedded YouTube Frame with Exact Playlist URL */}
+                {/* Responsive Embedded YouTube Frame with Exact YouTube Video URL */}
                 <div className="rounded-2xl overflow-hidden bg-black/50 border border-white/10 aspect-video relative shadow-inner">
                   <iframe
-                    src={item.youtubeEmbedUrl}
+                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
                     width="100%"
                     height="100%"
+                    className="aspect-video w-full h-full rounded-2xl pointer-events-auto"
                     frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                    className="w-full h-full rounded-2xl pointer-events-auto"
-                    title={item.title}
+                    loading="lazy"
+                    title={`YouTube Video ${video.id}`}
                   />
                   {/* Invisible drag-shield overlay only on inactive side cards, allowing direct playback on center card */}
-                  {!isCenter && <div className="absolute inset-0 z-50 cursor-pointer bg-transparent" />}
+                  {!isCenter && (
+                    <div className="absolute inset-0 z-50 cursor-pointer bg-black/20 backdrop-blur-[2px] rounded-3xl sm:rounded-[32px] md:rounded-[36px]" />
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -221,20 +164,39 @@ export default function YouTubeShowcase() {
         })}
       </div>
 
-      {/* Glowing Navigation Dots Indicator */}
-      <div className="flex items-center justify-center gap-2 mt-4">
-        {filteredItems.map((_, dotIdx) => (
-          <button
-            key={dotIdx}
-            onClick={() => setCurrentIndex(dotIdx)}
-            aria-label={`Go to slide ${dotIdx + 1}`}
-            className={`rounded-full transition-all duration-300 ${
-              dotIdx === currentIndex
-                ? 'w-6 h-2 bg-white shadow-[0_0_12px_rgba(255,255,255,0.85)]'
-                : 'w-2 h-2 bg-white/25 hover:bg-white/50'
-            }`}
-          />
-        ))}
+      {/* Pagination Controls & Navigation Arrows Row */}
+      <div className="flex items-center justify-center gap-4 mt-6 relative z-20">
+        <button
+          onClick={() => setCurrentIndex((prev) => (prev - 1 + totalVideos) % totalVideos)}
+          aria-label="Previous video"
+          className="p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-gray-300 hover:text-white transition-all hover:scale-105 active:scale-95 shadow-md"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        {/* Interactive Pagination Dots */}
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center max-w-lg px-2">
+          {featuredVideos.map((_, dotIdx) => (
+            <button
+              key={dotIdx}
+              onClick={() => setCurrentIndex(dotIdx)}
+              aria-label={`Go to video ${dotIdx + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                dotIdx === currentIndex
+                  ? 'w-6 h-2 bg-white shadow-[0_0_12px_rgba(255,255,255,0.85)]'
+                  : 'w-2 h-2 bg-white/25 hover:bg-white/50'
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => setCurrentIndex((prev) => (prev + 1) % totalVideos)}
+          aria-label="Next video"
+          className="p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-gray-300 hover:text-white transition-all hover:scale-105 active:scale-95 shadow-md"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
       </div>
     </section>
   );

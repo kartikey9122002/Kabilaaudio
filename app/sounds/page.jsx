@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import VaultPricing from '@/components/VaultPricing';
 import SoundLibrary from '@/components/SoundLibrary';
 import StickyPlayer from '@/components/StickyPlayer';
+import MusicProductionCourse from '@/components/MusicProductionCourse';
 import { Sparkles, Sliders, Music, Zap, Flame } from 'lucide-react';
 
 export default function SoundsPage() {
@@ -33,10 +34,10 @@ export default function SoundsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 text-xs font-bold text-pink-300 shadow-[0_0_20px_rgba(236,72,153,0.2)]"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 text-xs font-bold text-blue-300 shadow-[0_0_20px_rgba(99,102,241,0.2)]"
         >
-          <Sparkles className="w-3.5 h-3.5 text-pink-400" />
-          Kabila Audio — Royalty-Free Sample & Preset Vault
+          <Sparkles className="w-3.5 h-3.5 text-blue-300" />
+          Kabila Audio — Academy & Sound Vault
         </motion.div>
 
         <motion.h1
@@ -45,7 +46,7 @@ export default function SoundsPage() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-extrabold text-4xl sm:text-6xl md:text-7xl text-white tracking-tight font-heading"
         >
-          THE SOUND <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-400 to-rose-400">VAULT</span>
+          THE SOUND <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-indigo-200 to-white">VAULT</span>
         </motion.h1>
 
         <motion.p
@@ -54,9 +55,12 @@ export default function SoundsPage() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-gray-300 text-base sm:text-lg leading-relaxed font-sans"
         >
-          Preview and download studio-grade stems, analog drum kits, 808 sub-basses, and vocal chops curated by Kabila Audio.
+          Explore our professional Music Production Courses, 1-on-1 studio mentorship, and preview royalty-free stems and sample packs curated by Kabila Audio.
         </motion.p>
       </div>
+
+      {/* Music Production Course & 24-Module Syllabus */}
+      <MusicProductionCourse />
 
       {/* 3-Column Membership Tier Pricing */}
       <VaultPricing />
@@ -79,4 +83,3 @@ export default function SoundsPage() {
     </div>
   );
 }
-

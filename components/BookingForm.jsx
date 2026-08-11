@@ -2,14 +2,30 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MessageSquare, User, Mail, DollarSign, Music, CheckCircle2 } from 'lucide-react';
+import { Send, MessageSquare, User, Mail, IndianRupee, Music, CheckCircle2 } from 'lucide-react';
+
+const SERVICE_OPTIONS = [
+  'Single Song Production (₹25,000)',
+  '5-Song Album for Artists (₹75,000)',
+  'Film Production (₹1,500 - ₹6,000/min)',
+  'Music Production Course - 6 Months (₹29,999)',
+  'Music Production Course - 12 Months (₹59,999)',
+  'Other / Custom Inquiry',
+];
+
+const BUDGET_OPTIONS = [
+  'Under ₹25,000',
+  '₹25,000 - ₹50,000',
+  '₹50,000 - ₹1,00,000',
+  '₹1,00,000+',
+];
 
 export default function BookingForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    service: 'Full Track Production',
-    budget: '$1,000 - $3,000',
+    service: SERVICE_OPTIONS[0],
+    budget: BUDGET_OPTIONS[1],
     details: '',
   });
 
@@ -24,7 +40,7 @@ export default function BookingForm() {
     e.preventDefault();
     setSubmitted(true);
 
-    const messageTemplate = `🔥 *NEW STUDIO BOOKING INQUIRY* 🔥
+    const messageTemplate = `🔥 *KABILA AUDIO — STUDIO BOOKING INQUIRY* 🔥
 ━━━━━━━━━━━━━━━━━━━━━━
 👤 *Name:* ${formData.name}
 ✉️ *Email:* ${formData.email}
@@ -32,10 +48,10 @@ export default function BookingForm() {
 💰 *Estimated Budget:* ${formData.budget}
 📝 *Project Details:* ${formData.details || 'N/A'}
 ━━━━━━━━━━━━━━━━━━━━━━
-Sent via ARKIVE.AUDIO Portfolio`;
+Sent via Kabila Audio Portfolio`;
 
     const encodedString = encodeURIComponent(messageTemplate);
-    const whatsappUrl = `https://wa.me/916393237854?text=${encodedString}`;
+    const whatsappUrl = `https://wa.me/917710925944?text=${encodedString}`;
 
     // Small delay to show feedback tick before redirecting
     setTimeout(() => {
@@ -51,21 +67,21 @@ Sent via ARKIVE.AUDIO Portfolio`;
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="glass-card rounded-[2.5rem] p-8 sm:p-12 border border-white/15 shadow-[0_0_50px_-10px_rgba(168,85,247,0.25)] relative overflow-hidden"
+        className="glass-card rounded-[2.5rem] p-8 sm:p-12 border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden bg-white/10 backdrop-blur-2xl"
       >
         {/* Ambient Top Glow Blob */}
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-purple-600/15 blur-3xl pointer-events-none" />
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-indigo-600/20 blur-3xl pointer-events-none" />
 
         <div className="text-center space-y-3 mb-10 relative z-10">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 text-xs font-semibold text-purple-300">
-            <MessageSquare className="w-3.5 h-3.5 text-pink-400" />
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-xs font-bold text-blue-200">
+            <MessageSquare className="w-3.5 h-3.5 text-blue-300" />
             Direct WhatsApp Session Inquiry
           </span>
-          <h2 className="font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
-            BOOK YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400">SESSION</span>
+          <h2 className="font-extrabold text-3xl sm:text-5xl text-white tracking-tight font-heading">
+            BOOK YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-indigo-200 to-white">SESSION</span>
           </h2>
-          <p className="text-gray-300 text-sm sm:text-base max-w-lg mx-auto">
-            Ready to elevate your project? Fill out your requirements below to start a direct WhatsApp conversation with ARKIVE studio management.
+          <p className="text-gray-300 text-sm sm:text-base max-w-lg mx-auto font-sans">
+            Ready to elevate your project? Fill out your requirements below to start a direct WhatsApp conversation with Kabila Audio management.
           </p>
         </div>
 
@@ -73,8 +89,8 @@ Sent via ARKIVE.AUDIO Portfolio`;
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Name Input */}
             <div className="space-y-2">
-              <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center gap-1.5">
-                <User className="w-3.5 h-3.5 text-purple-400" /> Full Name
+              <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
+                <User className="w-3.5 h-3.5 text-blue-300" /> Full Name
               </label>
               <input
                 type="text"
@@ -82,15 +98,15 @@ Sent via ARKIVE.AUDIO Portfolio`;
                 required
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="e.g. Kendrick Lamar"
-                className="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 transition-all text-sm"
+                placeholder="e.g. Divine / Badshah / AR"
+                className="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans"
               />
             </div>
 
             {/* Email Input */}
             <div className="space-y-2">
-              <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-pink-400" /> Email Address
+              <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
+                <Mail className="w-3.5 h-3.5 text-indigo-300" /> Email Address
               </label>
               <input
                 type="email"
@@ -99,7 +115,7 @@ Sent via ARKIVE.AUDIO Portfolio`;
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="artist@recordlabel.com"
-                className="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 transition-all text-sm"
+                className="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans"
               />
             </div>
           </div>
@@ -107,46 +123,47 @@ Sent via ARKIVE.AUDIO Portfolio`;
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Service Select */}
             <div className="space-y-2">
-              <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center gap-1.5">
-                <Music className="w-3.5 h-3.5 text-cyan-400" /> Service Required
+              <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
+                <Music className="w-3.5 h-3.5 text-cyan-300" /> Service Required
               </label>
               <select
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full px-5 py-3.5 rounded-2xl bg-[#16123a] border border-white/10 text-white focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 transition-all text-sm cursor-pointer"
+                className="w-full px-5 py-3.5 rounded-2xl bg-[#0c0d21] border border-white/15 text-white focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans cursor-pointer"
               >
-                <option value="Full Track Production">Full Track Production & Composition</option>
-                <option value="Mixing & Dolby Atmos Mastering">Mixing & Dolby Atmos Mastering</option>
-                <option value="Vocal Recording & Tuning">Vocal Production & Tuning</option>
-                <option value="Custom Beatpack / Executive Producing">Custom Beatpack / Executive Production</option>
-                <option value="Sound Design & Film Score">Custom Sound Design & Film Score</option>
+                {SERVICE_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt} className="bg-[#0c0d21] text-white">
+                    {opt}
+                  </option>
+                ))}
               </select>
             </div>
 
             {/* Budget Select */}
             <div className="space-y-2">
-              <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center gap-1.5">
-                <DollarSign className="w-3.5 h-3.5 text-emerald-400" /> Project Budget
+              <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
+                <IndianRupee className="w-3.5 h-3.5 text-blue-300" /> Project Budget
               </label>
               <select
                 name="budget"
                 value={formData.budget}
                 onChange={handleChange}
-                className="w-full px-5 py-3.5 rounded-2xl bg-[#16123a] border border-white/10 text-white focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 transition-all text-sm cursor-pointer"
+                className="w-full px-5 py-3.5 rounded-2xl bg-[#0c0d21] border border-white/15 text-white focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans cursor-pointer"
               >
-                <option value="$500 - $1,000">$500 - $1,000 (Single Mix/Master)</option>
-                <option value="$1,000 - $3,000">$1,000 - $3,000 (Full Production)</option>
-                <option value="$3,000 - $5,000">$3,000 - $5,000 (EP Production)</option>
-                <option value="$5,000+">$5,000+ (Full Album / Executive)</option>
+                {BUDGET_OPTIONS.map((budgetOpt) => (
+                  <option key={budgetOpt} value={budgetOpt} className="bg-[#0c0d21] text-white">
+                    {budgetOpt}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
 
           {/* Details Input */}
           <div className="space-y-2">
-            <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center gap-1.5">
-              <MessageSquare className="w-3.5 h-3.5 text-yellow-400" /> Project Details & References
+            <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
+              <MessageSquare className="w-3.5 h-3.5 text-indigo-300" /> Project Details & References
             </label>
             <textarea
               name="details"
@@ -154,7 +171,7 @@ Sent via ARKIVE.AUDIO Portfolio`;
               value={formData.details}
               onChange={handleChange}
               placeholder="Tell us about your genre, deadline, reference tracks, or sound vision..."
-              className="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 transition-all text-sm resize-none"
+              className="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans resize-none"
             />
           </div>
 
@@ -162,17 +179,17 @@ Sent via ARKIVE.AUDIO Portfolio`;
           <button
             type="submit"
             disabled={submitted}
-            className="w-full py-4 px-8 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 hover:from-purple-500 hover:to-rose-500 text-white font-bold text-base shadow-[0_0_35px_rgba(168,85,247,0.5)] hover:shadow-[0_0_50px_rgba(225,29,72,0.7)] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-75"
+            className="w-full py-4 px-8 rounded-2xl bg-white hover:bg-blue-50 text-indigo-950 font-extrabold text-base shadow-[0_0_35px_rgba(165,180,252,0.4)] hover:shadow-[0_0_50px_rgba(165,180,252,0.7)] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-75 font-heading tracking-wide uppercase"
           >
             {submitted ? (
               <>
-                <CheckCircle2 className="w-5 h-5 text-green-300 animate-bounce" />
+                <CheckCircle2 className="w-5 h-5 text-indigo-950 animate-bounce" />
                 <span>Redirecting to WhatsApp...</span>
               </>
             ) : (
               <>
-                <Send className="w-5 h-5" />
-                <span>Send WhatsApp Inquiry (+91 63932 37854)</span>
+                <Send className="w-5 h-5 text-indigo-950" />
+                <span>Send WhatsApp Inquiry (+91 77109 25944)</span>
               </>
             )}
           </button>

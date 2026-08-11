@@ -4,29 +4,25 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Sparkles, Menu, X, Music, Radio } from 'lucide-react';
 
+import KabilaLogo from './KabilaLogo';
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <header className="fixed top-5 inset-x-0 z-50 px-4 sm:px-8 max-w-7xl mx-auto">
-      <nav className="rounded-full px-5 py-2.5 flex items-center justify-between shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] border border-white/20 backdrop-blur-2xl bg-white/10">
+      <nav className="rounded-full px-5 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] border border-white/20 backdrop-blur-2xl bg-white/10">
         
-        {/* Left: Circular dark badge KA + text KABILA AUDIO (Subtitle: SONIC VISIONARY in soft blue) */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-full bg-black/80 border border-white/20 flex items-center justify-center relative shadow-[0_0_18px_rgba(129,140,248,0.35)] group-hover:border-indigo-400/60 transition-colors">
-            <div className="w-6 h-6 rounded-full border border-indigo-400/50 flex items-center justify-center">
-              <div className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-extrabold text-base sm:text-lg tracking-wider text-white font-heading leading-tight">
-              KABILA <span className="text-white">AUDIO</span>
-            </span>
-            <span className="text-[9px] tracking-[0.25em] text-blue-300 font-bold uppercase -mt-0.5 font-sans">
-              SONIC VISIONARY
-            </span>
-          </div>
-        </Link>
+        {/* Left: Dedicated Logo Container with balanced spatial buffer */}
+        <div className="flex items-center pl-1 sm:pl-2 pr-3 sm:pr-6 py-0.5">
+          <Link
+            href="/"
+            className="flex items-center group transition-all duration-200 hover:opacity-95 hover:scale-[1.02] focus:outline-none"
+            aria-label="Kabila Audio Home"
+          >
+            <KabilaLogo className="h-7 sm:h-8 md:h-9 w-auto" />
+          </Link>
+        </div>
 
         {/* Center Nav Capsule */}
         <div className="hidden lg:flex items-center gap-2 bg-white/10 backdrop-blur-xl px-3.5 py-1.5 rounded-full border border-white/20 shadow-inner">
@@ -67,6 +63,13 @@ export default function Navbar() {
           >
             <Radio className="w-3.5 h-3.5 text-blue-300" />
             <span>Studio Hub</span>
+          </Link>
+
+          <Link
+            href="/owner"
+            className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-gray-200 hover:text-white hover:bg-white/10 transition-all"
+          >
+            Profile
           </Link>
 
           <Link
@@ -135,6 +138,13 @@ export default function Navbar() {
             className="px-4 py-2.5 rounded-2xl text-sm font-semibold bg-blue-950/40 text-blue-200 border border-blue-400/30 flex items-center gap-2"
           >
             <Radio className="w-4 h-4 text-blue-300" /> Studio Hub
+          </Link>
+          <Link
+            href="/owner"
+            onClick={() => setMobileOpen(false)}
+            className="px-4 py-2.5 rounded-2xl text-sm font-semibold text-gray-200 hover:bg-white/10"
+          >
+            Profile
           </Link>
           <Link
             href="/#contact"

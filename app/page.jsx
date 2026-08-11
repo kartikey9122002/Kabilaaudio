@@ -7,8 +7,6 @@ import YouTubeShowcase from '@/components/YouTubeShowcase';
 import ServicesPricing from '@/components/ServicesPricing';
 import AnalogGearGrid from '@/components/AnalogGearGrid';
 import WhatsAppBookingForm from '@/components/WhatsAppBookingForm';
-import StickyPlayer from '@/components/StickyPlayer';
-
 export default function HomePage() {
   const [selectedService, setSelectedService] = useState('');
 
@@ -31,9 +29,6 @@ export default function HomePage() {
 
       {/* 6. Direct WhatsApp Booking Masterpiece Form */}
       <WhatsAppBookingForm preselectedService={selectedService} />
-
-      {/* 7. Ultra-Transparent Glass Sticky Audio Player */}
-      <StickyPlayer />
     </div>
   );
 }

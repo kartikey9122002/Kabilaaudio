@@ -1,13 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowRight, Play, Pause, Radio, Star, Music2 } from 'lucide-react';
+import { Sparkles, ArrowRight, Radio, Star } from 'lucide-react';
 import Link from 'next/link';
 
 export default function HeroSection() {
-  const [isPlayingPreview, setIsPlayingPreview] = useState(false);
-
   const stats = [
     { value: '50M+', label: 'Spotify Streams' },
     { value: '12x', label: 'Platinum Records' },
@@ -15,14 +12,8 @@ export default function HeroSection() {
     { value: '18', label: 'Chart Top Hits' },
   ];
 
-  // 26 Waveform heights for the sound wave visualizer
-  const waveformPattern = [
-    30, 70, 40, 80, 50, 100, 75, 95, 100, 85, 95, 60, 40, 30, 60, 95, 100, 85, 95, 100, 75, 90, 60, 80, 40, 65
-  ];
-
   return (
     <section className="relative pt-36 pb-12 px-4 sm:px-8 max-w-7xl mx-auto flex flex-col items-center">
-      
       {/* 1. Top Pill Badges Row: Soft Cyan & Indigo Outlines */}
       <div className="flex flex-wrap items-center justify-center gap-3.5 mb-8">
         {/* ✨ SOUND ARCHITECT (Indigo outline) */}
@@ -59,23 +50,21 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Hero 2-Column Grid (Headline & Buttons Left, Live Studio Widget Right) */}
+      {/* Hero 2-Column Grid (Headline & Buttons Left, Latest Track Widget Right) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full mb-16">
-        
         {/* Left Headline & Action Buttons */}
         <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start relative bg-transparent shadow-none">
-          
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             className="font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-white font-heading relative z-10 bg-transparent shadow-none"
           >
-            Sculpting Sounds That <br className="hidden sm:inline" />
+            We just don&apos;t produce audio tracks, <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-blue-300 to-indigo-100 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(165,180,252,0.45)]">
-              Resonate
+              we produce
             </span>{' '}
-            Forever.
+            feelings.
           </motion.h1>
 
           <motion.p
@@ -84,10 +73,10 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="mt-6 text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl font-sans relative z-10"
           >
-            Kabila Audio — Multi-Platinum Producer & Audio Architect turning raw artistic visions into chart-topping records with high-end analog depth and digital precision.
+            Kabila Audio — Multi-Platinum Producer &amp; Audio Architect turning raw artistic visions into chart-topping records with high-end analog depth and digital precision.
           </motion.p>
 
-          {/* Action Buttons: Solid White / Deep Blue button next to glass capsule */}
+          {/* Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -115,16 +104,15 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* 2. Right-Side 'Live Studio' Card Widget (Glassmorphism Theme) */}
+        {/* 2. Right-Side 'Latest Track' Player Card (Glassmorphism Theme) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-5 w-full"
         >
-          <div className="rounded-[2.2rem] p-6 sm:p-7 border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden bg-white/10 backdrop-blur-xl">
-            
-            {/* Top Row: KA avatar + Kabila Audio + LIVE STUDIO pill */}
+          <div className="rounded-3xl sm:rounded-[32px] p-6 sm:p-7 border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden bg-white/10 backdrop-blur-xl">
+            {/* Top Row: KA avatar + Kabila Audio + LATEST TRACK pill */}
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white font-extrabold text-sm tracking-wider font-heading shadow-inner">
@@ -135,68 +123,31 @@ export default function HeroSection() {
                     Kabila Audio
                   </h3>
                   <p className="text-xs text-gray-300 font-medium font-sans">
-                    Head Producer & Audio Architect
+                    Head Producer &amp; Audio Architect
                   </p>
                 </div>
               </div>
 
-              {/* LIVE STUDIO Pill Badge */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-[11px] font-bold text-blue-200">
+              {/* LATEST TRACK Pill Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-[11px] font-bold text-blue-200 shadow-sm">
                 <Radio className="w-3.5 h-3.5 text-blue-300 animate-pulse" />
-                <span>LIVE STUDIO</span>
+                <span>LATEST TRACK</span>
               </div>
             </div>
 
-            {/* Inner Audio Card (Glass Frame) */}
-            <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-5 border border-white/15 shadow-inner mb-5">
-              
-              {/* Top metadata: SONIC PREVIEW on left, 140 BPM • F# MINOR in cyan on right */}
-              <div className="flex items-center justify-between mb-4 text-xs">
-                <span className="text-[11px] font-bold text-gray-300 tracking-wider font-mono">
-                  SONIC PREVIEW
-                </span>
-                <span className="text-[11px] font-bold text-cyan-300 tracking-wider font-mono">
-                  140 BPM • F# MINOR
-                </span>
-              </div>
-
-              {/* Equalizer: Soft Blue / Indigo glowing vertical audio wave visualizer */}
-              <div className="flex items-center justify-between h-14 gap-1 px-1 mb-5">
-                {waveformPattern.map((height, i) => (
-                  <div
-                    key={i}
-                    className="w-1.5 rounded-full bg-gradient-to-t from-indigo-600 via-blue-400 to-sky-300 shadow-[0_0_10px_rgba(96,165,250,0.5)] transition-all duration-300"
-                    style={{
-                      height: isPlayingPreview ? `${Math.max(25, (height + (i % 5) * 12) % 100)}%` : `${height}%`,
-                    }}
-                  />
-                ))}
-              </div>
-
-              {/* Track Title, Genre & White Play Button */}
-              <div className="flex items-center justify-between pt-1">
-                <div>
-                  <h4 className="font-extrabold text-sm sm:text-base text-white font-heading">
-                    Midnight Tokyo [Exclusive Beat]
-                  </h4>
-                  <p className="text-xs text-gray-300 font-sans mt-0.5">
-                    Dark Trap / Cinematic Synthwave
-                  </p>
-                </div>
-
-                {/* Circular white play button with deep indigo icon */}
-                <button
-                  onClick={() => setIsPlayingPreview(!isPlayingPreview)}
-                  className="w-11 h-11 rounded-full bg-white hover:bg-blue-50 text-indigo-950 flex items-center justify-center shadow-[0_0_20px_rgba(165,180,252,0.6)] hover:scale-105 transition-all shrink-0 ml-3"
-                  aria-label="Play or pause track preview"
-                >
-                  {isPlayingPreview ? (
-                    <Pause className="w-5 h-5 fill-indigo-950 text-indigo-950" />
-                  ) : (
-                    <Play className="w-5 h-5 fill-indigo-950 text-indigo-950 translate-x-0.5" />
-                  )}
-                </button>
-              </div>
+            {/* Embedded Spotify Track */}
+            <div className="rounded-2xl overflow-hidden bg-black/50 border border-white/15 shadow-inner mb-5">
+              <iframe
+                src="https://open.spotify.com/embed/track/3UBOmRHmkTbhKUeHzeRY2M?utm_source=generator&theme=0"
+                width="100%"
+                height="152"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                title="Latest Track Spotify Player"
+                className="rounded-2xl"
+              />
             </div>
 
             {/* Card Footer: Labels on left; Rating on right */}
@@ -211,12 +162,12 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* 3. Bottom Stats Bar */}
+      {/* 3. Bottom Stats Bar (Static Text) */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="w-full rounded-[2rem] p-6 sm:p-8 border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)] bg-white/10 backdrop-blur-xl"
+        className="w-full rounded-3xl sm:rounded-[32px] p-6 sm:p-8 border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)] bg-white/10 backdrop-blur-xl"
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((stat, idx) => (
@@ -234,12 +185,6 @@ export default function HeroSection() {
           ))}
         </div>
       </motion.div>
-
     </section>
   );
 }
-
-
-
-
-

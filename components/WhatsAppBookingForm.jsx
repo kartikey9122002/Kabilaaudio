@@ -1,17 +1,58 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MessageSquare, User, Mail, DollarSign, Music, CheckCircle2, Sparkles } from 'lucide-react';
+import { Send, MessageSquare, User, Mail, IndianRupee, Music, CheckCircle2 } from 'lucide-react';
+
+const SERVICE_OPTIONS = [
+  'Music Production',
+  'Music Video Audio',
+  'Short Film / Feature Film Audio',
+  'Sound Design',
+  'Foley Arts',
+  'Background Score',
+  'Voice / Dubbing',
+  'Mixing & Mastering',
+  'Podcast Production',
+  'YouTube / Social Media Audio',
+  'Advertising / Brand Audio',
+  'Game / App Audio',
+  'Audio Restoration',
+  'Audio Post-Production Packages',
+  'Music Production Course - 6 Months (₹29,999)',
+  'Music Production Course - 12 Months (₹59,999)',
+  'Other / Custom Inquiry',
+];
+
+const BUDGET_OPTIONS = [
+  'Under ₹25,000',
+  '₹25,000 - ₹50,000',
+  '₹50,000 - ₹1,00,000',
+  '₹1,00,000+',
+];
 
 export default function WhatsAppBookingForm({ preselectedService }) {
   const [formData, setFormData] = useState({
     stageName: '',
     email: '',
-    service: preselectedService || 'Analog Stem Mixing & Master ($350)',
-    budget: '$500 - $1,000',
+    service: preselectedService || SERVICE_OPTIONS[0],
+    budget: BUDGET_OPTIONS[1],
     details: '',
   });
+
+  useEffect(() => {
+    if (preselectedService) {
+      const match = SERVICE_OPTIONS.find(
+        (opt) =>
+          opt.toLowerCase().includes(preselectedService.toLowerCase()) ||
+          preselectedService.toLowerCase().includes(opt.toLowerCase())
+      );
+      setFormData((prev) => ({
+        ...prev,
+        service: match || preselectedService,
+      }));
+    }
+  }, [preselectedService]);
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -26,7 +67,7 @@ export default function WhatsAppBookingForm({ preselectedService }) {
 
     const messageTemplate = `🔥 *KABILA AUDIO — STUDIO BOOKING INQUIRY* 🔥
 ━━━━━━━━━━━━━━━━━━━━━━
-👤 *Stage Name:* ${formData.stageName}
+👤 *Stage / Artist Name:* ${formData.stageName}
 ✉️ *Email:* ${formData.email}
 🎛️ *Service Requested:* ${formData.service}
 💰 *Estimated Budget:* ${formData.budget}
@@ -35,7 +76,7 @@ export default function WhatsAppBookingForm({ preselectedService }) {
 Sent via Kabila Audio Portfolio`;
 
     const encodedString = encodeURIComponent(messageTemplate);
-    const whatsappUrl = `https://wa.me/917566016591?text=${encodedString}`;
+    const whatsappUrl = `https://wa.me/917710925944?text=${encodedString}`;
 
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
@@ -47,7 +88,6 @@ Sent via Kabila Audio Portfolio`;
     <section id="contact" className="py-20 px-4 sm:px-8 max-w-4xl mx-auto scroll-mt-24 relative">
       <div id="booking" className="absolute -top-24" />
       <motion.div
-
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -69,16 +109,16 @@ Sent via Kabila Audio Portfolio`;
           </h2>
           
           <p className="text-gray-300 text-sm sm:text-base max-w-lg mx-auto font-sans">
-            Ready to produce your next record? Submit your project specs below to connect directly with Kabila Audio management on WhatsApp.
+            Ready to produce your next record or join our academy? Submit your project specs below to connect directly with Kabila Audio on WhatsApp.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Stage Name Input */}
+            {/* Stage / Artist Name Input */}
             <div className="space-y-2">
               <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
-                <User className="w-3.5 h-3.5 text-blue-300" /> Stage Name
+                <User className="w-3.5 h-3.5 text-blue-300" /> Stage / Artist Name
               </label>
               <input
                 type="text"
@@ -86,7 +126,7 @@ Sent via Kabila Audio Portfolio`;
                 required
                 value={formData.stageName}
                 onChange={handleChange}
-                placeholder="e.g. Travis Scott / SZA"
+                placeholder="e.g. Divine / Badshah / AR"
                 className="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans"
               />
             </div>
@@ -120,18 +160,18 @@ Sent via Kabila Audio Portfolio`;
                 onChange={handleChange}
                 className="w-full px-5 py-3.5 rounded-2xl bg-[#0c0d21] border border-white/15 text-white focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans cursor-pointer"
               >
-                <option value="Sonic Branding & Custom Beats ($500)">Sonic Branding & Custom Beats ($500 / track)</option>
-                <option value="Analog Stem Mixing & Master ($350)">Analog Stem Mixing & Master ($350 / track)</option>
-                <option value="Vocal Sculpting & Tuning ($200)">Vocal Sculpting & Tuning ($200 / track)</option>
-                <option value="Full Track Architecture ($1,200)">Full Track Architecture ($1,200 / package)</option>
-                <option value="Custom Executive Album Production">Custom Executive Album Production</option>
+                {SERVICE_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt} className="bg-[#0c0d21] text-white">
+                    {opt}
+                  </option>
+                ))}
               </select>
             </div>
 
-            {/* Budget Dropdown */}
+            {/* Estimated Budget Dropdown */}
             <div className="space-y-2">
               <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
-                <DollarSign className="w-3.5 h-3.5 text-blue-300" /> Estimated Budget
+                <IndianRupee className="w-3.5 h-3.5 text-blue-300" /> Estimated Budget
               </label>
               <select
                 name="budget"
@@ -139,10 +179,11 @@ Sent via Kabila Audio Portfolio`;
                 onChange={handleChange}
                 className="w-full px-5 py-3.5 rounded-2xl bg-[#0c0d21] border border-white/15 text-white focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans cursor-pointer"
               >
-                <option value="$200 - $500">$200 - $500 (Vocal Tuning / Single Mix)</option>
-                <option value="$500 - $1,000">$500 - $1,000 (Custom Beats & Mixing)</option>
-                <option value="$1,000 - $3,000">$1,000 - $3,000 (Full Production & Master)</option>
-                <option value="$3,000+">$3,000+ (EP / Executive Album Project)</option>
+                {BUDGET_OPTIONS.map((budgetOpt) => (
+                  <option key={budgetOpt} value={budgetOpt} className="bg-[#0c0d21] text-white">
+                    {budgetOpt}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -157,7 +198,7 @@ Sent via Kabila Audio Portfolio`;
               rows={4}
               value={formData.details}
               onChange={handleChange}
-              placeholder="Tell us about your genre, target release date, reference artists, or audio stem links..."
+              placeholder="Tell us about your genre, timeline, reference tracks, or course enrollment questions..."
               className="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans resize-none"
             />
           </div>
@@ -185,4 +226,3 @@ Sent via Kabila Audio Portfolio`;
     </section>
   );
 }
-

@@ -130,14 +130,15 @@ export default function SoundLibrary({ activeTrack, isPlaying, onSelectTrack, on
 
   return (
     <section className="py-12 px-4 sm:px-8 max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Sidebar Filters */}
-        <div className="lg:col-span-3 space-y-6">
-          <div className="glass-card rounded-[2rem] p-6 border border-white/10 shadow-[0_0_40px_-10px_rgba(168,85,247,0.2)]">
-            <div className="flex items-center gap-2 mb-6 pb-3 border-b border-white/10">
-              <Filter className="w-4 h-4 text-purple-400" />
-              <h3 className="font-bold text-lg text-white">Library Filters</h3>
-            </div>
+      <div className="relative w-full py-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 blur-md opacity-40 pointer-events-none select-none">
+          {/* Left Sidebar Filters */}
+          <div className="lg:col-span-3 space-y-6">
+            <div className="glass-card rounded-[2rem] p-6 border border-white/10 shadow-[0_0_40px_-10px_rgba(168,85,247,0.2)]">
+              <div className="flex items-center gap-2 mb-6 pb-3 border-b border-white/10">
+                <Filter className="w-4 h-4 text-purple-400" />
+                <h3 className="font-bold text-lg text-white">Library Filters</h3>
+              </div>
 
             {/* Instrument Filter */}
             <div className="space-y-3 mb-6">
@@ -340,6 +341,16 @@ export default function SoundLibrary({ activeTrack, isPlaying, onSelectTrack, on
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+
+      {/* Coming Soon Overlay */}
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-auto px-4">
+        <div className="bg-black/40 backdrop-blur-2xl border border-white/20 rounded-[32px] px-8 py-10 md:px-16 md:py-14 flex flex-col items-center text-center shadow-[0_0_80px_rgba(255,255,255,0.1)]">
+          <span className="text-xs md:text-sm font-bold tracking-[0.3em] text-blue-400 uppercase mb-4">Under Construction</span>
+          <h3 className="text-4xl md:text-6xl font-extrabold text-white tracking-widest uppercase mb-4">Coming Soon</h3>
+          <p className="text-base md:text-lg text-white/70 max-w-md">The ultimate royalty-free stem and analog synth library is currently being sculpted in the lab.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 }

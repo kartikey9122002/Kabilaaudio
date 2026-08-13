@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import VaultPricing from '@/components/VaultPricing';
 import SoundLibrary from '@/components/SoundLibrary';
-import StickyPlayer from '@/components/StickyPlayer';
 import MusicProductionCourse from '@/components/MusicProductionCourse';
 import { Sparkles, Sliders, Music, Zap, Flame } from 'lucide-react';
 
@@ -21,11 +20,6 @@ export default function SoundsPage() {
     setIsPlaying(!isPlaying);
   };
 
-  const handleClosePlayer = () => {
-    setIsPlaying(false);
-    setActiveTrack(null);
-  };
-
   return (
     <div className="pt-32 pb-28 px-4 sm:px-8 max-w-7xl mx-auto space-y-16">
       {/* Sound Vault Header */}
@@ -37,7 +31,7 @@ export default function SoundsPage() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 text-xs font-bold text-blue-300 shadow-[0_0_20px_rgba(99,102,241,0.2)]"
         >
           <Sparkles className="w-3.5 h-3.5 text-blue-300" />
-          Kabila Audio — Academy & Sound Vault
+          Kabila Audio — Academy &amp; Sound Vault
         </motion.div>
 
         <motion.h1
@@ -71,14 +65,6 @@ export default function SoundsPage() {
         isPlaying={isPlaying}
         onSelectTrack={handleSelectTrack}
         onTogglePlay={handleTogglePlay}
-      />
-
-      {/* Sticky Glassmorphic Audio Player Bar */}
-      <StickyPlayer
-        activeTrack={activeTrack}
-        isPlaying={isPlaying}
-        onTogglePlay={handleTogglePlay}
-        onClose={handleClosePlayer}
       />
     </div>
   );

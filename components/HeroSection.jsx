@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 export default function HeroSection() {
   const stats = [
-    { value: '50M+', label: 'Spotify Streams' },
-    { value: '12x', label: 'Platinum Records' },
-    { value: '250+', label: 'Tracks Produced' },
-    { value: '18', label: 'Chart Top Hits' },
+    { value: '35M+', label: 'All Platform Streams' },
+    { value: '550+', label: 'track Produced' },
+    { value: '12 x', label: 'Platinum records' },
+    { value: '10', label: 'CHART top hits' },
   ];
 
   return (
@@ -38,7 +38,7 @@ export default function HeroSection() {
           <span>SONIC VISIONARY</span>
         </motion.div>
 
-        {/* ✨ MULTI-PLATINUM MASTER (Sky Blue outline) */}
+        {/* ✨ MULTI-PLATINUM PRODUCER (Sky Blue outline) */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function HeroSection() {
           className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/40 text-xs font-bold text-sky-200 shadow-[0_0_18px_rgba(14,165,233,0.2)] backdrop-blur-md"
         >
           <span className="text-sky-300">✨</span>
-          <span>MULTI-PLATINUM MASTER</span>
+          <span>MULTI-PLATINUM PRODUCER</span>
         </motion.div>
       </div>
 
@@ -60,7 +60,7 @@ export default function HeroSection() {
             transition={{ duration: 0.7 }}
             className="font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-white font-heading relative z-10 bg-transparent shadow-none"
           >
-            We just don&apos;t produce audio tracks, <br className="hidden sm:inline" />
+            We don&apos;t just produce audio tracks, <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-blue-300 to-indigo-100 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(165,180,252,0.45)]">
               we produce
             </span>{' '}
@@ -73,7 +73,7 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="mt-6 text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl font-sans relative z-10"
           >
-            Kabila Audio — Multi-Platinum Producer &amp; Audio Architect turning raw artistic visions into chart-topping records with high-end analog depth and digital precision.
+            Kabila Audio - A Team Of Well Trained Music Producers &amp; Audio Architect ….
           </motion.p>
 
           {/* Action Buttons */}

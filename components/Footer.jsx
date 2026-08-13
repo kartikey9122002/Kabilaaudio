@@ -216,7 +216,7 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} Kabila Audio. All rights reserved. Sonic Visionary &amp; Audio Architect.</p>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1 text-blue-300">
-              <Sparkles className="w-3 h-3" /> Multi-Platinum Master Producer
+              <Sparkles className="w-3 h-3" /> Multi-Platinum Producer
             </span>
           </div>
         </div>

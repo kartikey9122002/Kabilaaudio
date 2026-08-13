@@ -35,80 +35,89 @@ import {
 
 const SERVICE_CATEGORIES = [
   {
-    id: 'music-production',
+    id: 'music-production-services',
     cardNumber: '01',
     categoryBadge: 'Flagship Audio',
-    title: 'Music Production',
+    title: 'MUSIC PRODUCTION SERVICES',
     icon: Music,
-    badge: '11 Service Tiers',
-    description: 'End-to-end bespoke composition, live instrument tracking, arrangement, and vocal production.',
+    badge: '9 Service Tiers',
+    description: 'Comprehensive music production, live tracking, vocal pitch tuning, analog/digital mixing and mastering.',
     type: 'list',
     items: [
-      { name: 'Full Song Production', price: '₹25,000 – ₹75,000' },
-      { name: 'Premium Song Production', price: '₹75,000 – ₹1,50,000+' },
-      { name: 'Music Arrangement', price: '₹10,000 – ₹30,000' },
-      { name: 'Beat Production', price: '₹8,000 – ₹25,000' },
-      { name: 'Custom Beat / Instrumental', price: '₹10,000 – ₹30,000' },
-      { name: 'Background Music / Original Score', price: '₹15,000 – ₹50,000' },
-      { name: 'Music Programming', price: '₹8,000 – ₹25,000' },
-      { name: 'Live Instrument Recording', price: '₹3,000 – ₹10,000 / inst' },
-      { name: 'Vocal Recording', price: '₹2,000 – ₹5,000 / hr' },
-      { name: 'Vocal Editing / Tuning', price: '₹3,000 – ₹10,000 / song' },
-      { name: 'Vocal Comping', price: '₹2,000 – ₹7,000 / song' },
+      { name: 'Music Programming', price: '₹30,000' },
+      { name: 'Live Instruments', price: '₹15,000 / Instrument' },
+      { name: 'Vocal Tuning & Pitch Correction (Normal)', price: '₹2,000' },
+      { name: 'Vocal Pitch Correction with Melodyne', price: '₹4,000' },
+      { name: 'Mixing – Digital', price: '₹15,000' },
+      { name: 'Mixing – Analog', price: '₹30,000' },
+      { name: 'Mastering – Digital', price: '₹10,000' },
+      { name: 'Mastering – Analog', price: '₹15,000' },
+      { name: 'Vocal Recording', price: '₹1,000 / Hour' },
     ],
   },
   {
-    id: 'music-video-audio',
+    id: 'custom-song-production',
     cardNumber: '02',
-    categoryBadge: 'Commercial Visuals',
-    title: 'Music Video Audio',
-    icon: Video,
-    badge: 'Turnkey Visual Suites',
-    description: 'Broadcast & streaming-ready audio production packages engineered for music video shoots.',
-    type: 'packages',
-    packages: [
+    categoryBadge: 'Full Composition',
+    title: 'CUSTOM SONG PRODUCTION',
+    icon: Sparkles,
+    badge: 'Turnkey Songwriting',
+    description: 'Custom song creation from scratch, including composition, lyrics, arrangement, and elite production.',
+    type: 'detailed_list',
+    items: [
       {
-        title: 'Music Video Audio Package',
-        price: '₹35,000 – ₹1,00,000 / song',
-        includes:
-          'Music Production, Vocal Editing/Tuning, Sound Design, Mixing, Mastering, Instrumental, Acapella, TV/Streaming Ready Exports',
+        name: 'Full Song Production',
+        price: '₹50,000–₹60,000',
+        detail: 'Composition / Lyrics / Music Production',
       },
       {
-        title: 'Premium Music Video Package',
-        price: '₹1,00,000 – ₹2,50,000 / song',
-        includes:
-          'Complete Production, Live Instrumentation, Advanced Vocal Production, Creative Sound Design, Cinematic Effects, Atmospheres, Dolby/Immersive Deliverables, Mix & Master, Multiple Formats',
+        name: 'Premium Song Production',
+        price: '₹75,000–₹1,00,000',
+        detail: 'Composition / Lyrics / Music Production / Live Instruments',
+      },
+      {
+        name: 'Film / OTT Level Song',
+        price: '₹1,00,000–₹3,00,000',
       },
     ],
+    footerNote: '*Note: Singer & Studio Charges Not Included.',
   },
   {
-    id: 'film-audio',
+    id: 'film-ott-post-production',
     cardNumber: '03',
     categoryBadge: 'Cinematic Post',
-    title: 'Short Film / Feature Film Audio',
+    title: 'FILM & OTT AUDIO POST PRODUCTION',
     icon: Film,
-    badge: 'OTT & Theatrical',
-    description: 'Comprehensive audio post-production suites for indie shorts, OTT productions, and theatrical features.',
+    badge: 'Shorts & Features',
+    description: 'Comprehensive cinematic scoring, foley, immersive surround sound design, and Dolby/5.1 theatre mastering.',
     type: 'sections',
     sections: [
       {
-        sectionTitle: 'Short Film Audio Post',
+        sectionTitle: 'SHORT FILM',
         items: [
-          { name: 'Background Score', price: '₹20,000 – ₹75,000' },
-          { name: 'Full Sound Design', price: '₹25,000 – ₹1,00,000' },
-          { name: 'Foley Recording', price: '₹15,000 – ₹60,000' },
-          { name: 'Dialogue Editing', price: '₹10,000 – ₹40,000' },
-          { name: 'Dialogue Cleanup', price: '₹5,000 – ₹25,000' },
-          { name: 'Final Mix', price: '₹15,000 – ₹60,000' },
-          { name: 'Complete Audio Post', price: '₹75,000 – ₹2,50,000+' },
+          {
+            name: 'Background Score + Foley & Sound Design',
+            price: '₹3,000–₹6,000 / Minute',
+          },
         ],
       },
       {
-        sectionTitle: 'Feature Film Audio Suites',
+        sectionTitle: 'FEATURE FILM & OTT',
         items: [
-          { name: 'Indie Feature Film', price: '₹2,50,000 – ₹8,00,000+' },
-          { name: 'Professional Feature', price: '₹8,00,000 – ₹25,00,000+' },
-          { name: 'Premium / OTT Feature', price: '₹20,00,000 – ₹50,00,000+' },
+          { name: 'Background Score', price: '₹8,000–₹10,000 / Minute' },
+          { name: 'Detailed Foley & Sound Design', price: '₹3,000–₹6,000 / Minute' },
+          { name: 'Final Stereo Mix', price: '₹25,000' },
+          { name: '5.1 Theatre Quality Mix', price: '₹1,00,000' },
+        ],
+      },
+      {
+        sectionTitle: 'FULL AUDIO POST-PRODUCTION PACKAGE',
+        items: [
+          {
+            name: '2.5 Hour Film',
+            price: '₹5,00,000',
+            detail: 'Includes All Audio Post-Production Services',
+          },
         ],
       },
     ],
@@ -616,14 +625,21 @@ export default function ServicesPricing({ onSelectService }) {
                             {sec.items.map((item, idx) => (
                               <div
                                 key={idx}
-                                className="flex items-center justify-between gap-3 p-2 rounded-lg bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.07] transition-colors"
+                                className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.07] transition-colors space-y-1"
                               >
-                                <span className="text-xs font-medium text-gray-200 font-sans">
-                                  {item.name}
-                                </span>
-                                <span className="text-xs font-bold text-blue-300 font-mono shrink-0 bg-blue-500/10 px-2 py-0.5 rounded-md border border-blue-400/20">
-                                  {item.price}
-                                </span>
+                                <div className="flex items-center justify-between gap-3">
+                                  <span className="text-xs font-medium text-gray-200 font-sans">
+                                    {item.name}
+                                  </span>
+                                  <span className="text-xs font-bold text-blue-300 font-mono shrink-0 bg-blue-500/10 px-2 py-0.5 rounded-md border border-blue-400/20">
+                                    {item.price}
+                                  </span>
+                                </div>
+                                {item.detail && (
+                                  <p className="text-[11px] text-gray-300 font-sans italic">
+                                    ({item.detail})
+                                  </p>
+                                )}
                               </div>
                             ))}
                           </div>
@@ -670,7 +686,7 @@ export default function ServicesPricing({ onSelectService }) {
                     </div>
                   )}
 
-                  {/* Type 5: Detailed List (Background Score) */}
+                  {/* Type 5: Detailed List (Background Score / Custom Song) */}
                   {card.type === 'detailed_list' && (
                     <div className="space-y-2.5">
                       {card.items.map((item, idx) => (
@@ -686,9 +702,11 @@ export default function ServicesPricing({ onSelectService }) {
                               {item.price}
                             </span>
                           </div>
-                          <p className="text-[11px] text-gray-300 font-sans italic">
-                            ({item.detail})
-                          </p>
+                          {item.detail && (
+                            <p className="text-[11px] text-gray-300 font-sans italic">
+                              ({item.detail})
+                            </p>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -733,6 +751,13 @@ export default function ServicesPricing({ onSelectService }) {
                         </div>
                       </div>
                     </div>
+                  )}
+
+                  {/* Footer Element for Cards with notes */}
+                  {card.footerNote && (
+                    <p className="text-xs text-white/50 italic pt-4 mt-auto">
+                      {card.footerNote}
+                    </p>
                   )}
                 </div>
 

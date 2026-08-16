@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Send, MessageSquare, User, Mail, IndianRupee, Music, CheckCircle2 } from 'lucide-react';
 
 const SERVICE_OPTIONS = [
+  'Artist Launch Package (₹19,999)',
   'Music Production',
   'Music Video Audio',
   'Short Film / Feature Film Audio',
@@ -40,6 +41,8 @@ export default function WhatsAppBookingForm({ preselectedService }) {
     details: '',
   });
 
+  const isFixedPrice = formData.service.includes('₹');
+
   useEffect(() => {
     if (preselectedService) {
       const match = SERVICE_OPTIONS.find(
@@ -69,8 +72,7 @@ export default function WhatsAppBookingForm({ preselectedService }) {
 ━━━━━━━━━━━━━━━━━━━━━━
 👤 *Stage / Artist Name:* ${formData.stageName}
 ✉️ *Email:* ${formData.email}
-🎛️ *Service Requested:* ${formData.service}
-💰 *Estimated Budget:* ${formData.budget}
+🎛️ *Service Requested:* ${formData.service}${!isFixedPrice ? `\n💰 *Estimated Budget:* ${formData.budget}` : ''}
 📝 *Project Details:* ${formData.details || 'N/A'}
 ━━━━━━━━━━━━━━━━━━━━━━
 Sent via Kabila Audio Portfolio`;
@@ -148,7 +150,7 @@ Sent via Kabila Audio Portfolio`;
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className={`grid grid-cols-1 ${isFixedPrice ? '' : 'sm:grid-cols-2'} gap-6`}>
             {/* Service Requested Dropdown */}
             <div className="space-y-2">
               <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
@@ -169,23 +171,25 @@ Sent via Kabila Audio Portfolio`;
             </div>
 
             {/* Estimated Budget Dropdown */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
-                <IndianRupee className="w-3.5 h-3.5 text-blue-300" /> Estimated Budget
-              </label>
-              <select
-                name="budget"
-                value={formData.budget}
-                onChange={handleChange}
-                className="w-full px-5 py-3.5 rounded-2xl bg-[#0c0d21] border border-white/15 text-white focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans cursor-pointer"
-              >
-                {BUDGET_OPTIONS.map((budgetOpt) => (
-                  <option key={budgetOpt} value={budgetOpt} className="bg-[#0c0d21] text-white">
-                    {budgetOpt}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {!isFixedPrice && (
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 font-heading">
+                  <IndianRupee className="w-3.5 h-3.5 text-blue-300" /> Estimated Budget
+                </label>
+                <select
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                  className="w-full px-5 py-3.5 rounded-2xl bg-[#0c0d21] border border-white/15 text-white focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 transition-all text-sm font-sans cursor-pointer"
+                >
+                  {BUDGET_OPTIONS.map((budgetOpt) => (
+                    <option key={budgetOpt} value={budgetOpt} className="bg-[#0c0d21] text-white">
+                      {budgetOpt}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
 
           {/* Details Textarea */}

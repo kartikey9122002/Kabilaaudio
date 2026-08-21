@@ -99,11 +99,18 @@ export default function JoinPage() {
             
             {/* Scrollable Terms Content */}
             <div className="bg-black/30 border border-white/5 rounded-2xl p-6 h-64 overflow-y-auto mb-8 text-sm text-white/70 space-y-4">
-              <p><strong className="text-white">1. Project Timelines:</strong> Standard production timelines vary between 2 to 4 weeks depending on track complexity. Delays in client feedback will extend this timeline.</p>
-              <p><strong className="text-white">2. Revisions:</strong> The Artist Launch Package includes up to 3 major mix revisions. Further structural changes post-approval may incur additional studio fees.</p>
-              <p><strong className="text-white">3. Payments & Deposits:</strong> The ₹19,999 fee is required to commence work. Studio booking times and session musician fees (if applicable beyond the package scope) are strictly non-refundable.</p>
-              <p><strong className="text-white">4. Royalties & Rights:</strong> Kabila Audio retains standard producer credits. Specific royalty splits for major streaming distribution will be negotiated and signed in a separate split sheet agreement prior to release.</p>
-              <p><strong className="text-white">5. Conduct:</strong> Kabila Audio reserves the right to terminate sessions immediately if studio guidelines are violated.</p>
+              <p><strong className="text-white">1. Composition & Lyrics:</strong> The artist must have their own composition and lyrics idea/concept ready before production begins.</p>
+              <p><strong className="text-white">2. YouTube Channel:</strong> The artist must have their own YouTube channel for releasing and promoting the songs.</p>
+              <p><strong className="text-white">3. Artist Participation:</strong> The artist must actively participate in the recording, creative decisions, and approval process.</p>
+              <p><strong className="text-white">4. Original Content:</strong> All lyrics, compositions, and creative materials provided by the artist must be original or legally cleared. The artist will be responsible for any copyright claims.</p>
+              <p><strong className="text-white">5. Revisions:</strong> Reasonable revisions are included. Major changes after approval, including changes to composition, lyrics, or arrangement, may be charged separately.</p>
+              <p><strong className="text-white">6. Production Timelines & Delays:</strong> Delivery timelines vary depending on artist availability, revisions, and approvals. Delays caused by the artist (missed sessions, late submissions) will extend this timeline.</p>
+              <p><strong className="text-white">7. Digital Distribution:</strong> Songs will be distributed to major streaming platforms after the required artist information, artwork, metadata, and approvals are provided.</p>
+              <p><strong className="text-white">8. Subscription & Payments:</strong> The ₹19,999/- subscription fee must be paid before the package is activated. This package is strictly non-transferable.</p>
+              <p><strong className="text-white">9. Royalties & Rights:</strong> Kabila Audio retains standard producer credits. Specific royalty splits for major streaming distribution will be signed in a separate agreement prior to release.</p>
+              <p><strong className="text-white">10. No Guaranteed Results:</strong> Kabila Audio provides professional guidance; however, streams, followers, viral reach, or commercial success cannot be guaranteed.</p>
+              <p><strong className="text-white">11. Song Usage & Commercial Rights:</strong> The artist may release the songs through their own YouTube and approved digital platforms. The artist cannot sell, license, or commercially distribute the song to any third party without prior written permission from Kabila Audio.</p>
+              <p><strong className="text-white">12. Professional Conduct:</strong> Kabila Audio reserves the right to terminate sessions immediately if professional conduct and studio guidelines are violated by the artist.</p>
             </div>
 
             {/* Checkbox Acknowledgment */}

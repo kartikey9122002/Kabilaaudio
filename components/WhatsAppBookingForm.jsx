@@ -14,7 +14,7 @@ const SERVICE_OPTIONS = [
   'Background Score',
   'Voice / Dubbing',
   'Mixing & Mastering',
-  'Podcast Production',
+  'Podcast Production (Per Minute / Per Episode)',
   'YouTube / Social Media Audio',
   'Advertising / Brand Audio',
   'Game / App Audio',

@@ -258,17 +258,17 @@ const SERVICE_CATEGORIES = [
     title: 'Podcast Production',
     icon: Radio,
     badge: 'Studio Clarity',
-    description: 'Turnkey audio engineering for podcasts, audiobooks, and multi-mic episodic talk shows.',
+    description: 'Turnkey audio engineering for podcasts, audiobooks, and multi-mic episodic talk shows (Billed Per Minute / Per Episode).',
     type: 'packages',
     packages: [
       {
         title: 'Podcast Basic',
-        price: '₹3,000 – ₹6,000 / episode',
+        price: '₹3,000 – ₹6,000 / minute / episode',
         includes: 'Cleanup, editing, noise reduction, EQ, compression, loudness mastering',
       },
       {
         title: 'Podcast Premium',
-        price: '₹7,000 – ₹15,000 / episode',
+        price: '₹7,000 – ₹15,000 / minute / episode',
         includes: 'Full editing, music, SFX, transitions, sound design, mixing & mastering',
       },
       {

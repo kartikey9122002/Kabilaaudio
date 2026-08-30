@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   LayoutDashboard,
+  Film,
   Music,
   Database,
   Calendar,
@@ -24,6 +25,11 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       name: 'Dashboard',
       href: '/admin',
       icon: LayoutDashboard,
+    },
+    {
+      name: 'Showcase Manager',
+      href: '/admin/showcase',
+      icon: Film,
     },
     {
       name: 'Media Manager',

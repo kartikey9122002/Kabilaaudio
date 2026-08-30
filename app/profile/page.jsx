@@ -1,5 +1,1 @@
-import OwnerProfilePage from '../owner/page';
-
-export default function ProfilePage() {
-  return <OwnerProfilePage />;
-}
+export { default } from '../owner/page';

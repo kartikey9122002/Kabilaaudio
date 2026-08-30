@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowRight, Radio, Star } from 'lucide-react';
+import { Sparkles, ArrowRight, Flame, Radio, Play } from 'lucide-react';
 import Link from 'next/link';
 
 export default function HeroSection() {
@@ -50,7 +50,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Hero 2-Column Grid (Headline & Buttons Left, Latest Track Widget Right) */}
+      {/* Hero 2-Column Grid (Headline Left, Live Playable Spotify Card Right) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full mb-16">
         {/* Left Headline & Action Buttons */}
         <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start relative bg-transparent shadow-none">
@@ -104,59 +104,79 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* 2. Right-Side 'Latest Track' Player Card (Glassmorphism Theme) */}
+        {/* 2. Top-Right Live Playable Spotify Container (Glassmorphic Outer Wrapper) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-5 w-full"
         >
-          <div className="rounded-3xl sm:rounded-[32px] p-6 sm:p-7 border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden bg-white/10 backdrop-blur-xl">
-            {/* Top Row: KA avatar + Kabila Audio + LATEST TRACK pill */}
-            <div className="flex items-center justify-between mb-5">
+          <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[32px] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden space-y-4">
+            {/* Header Row with Glowing VIRAL HIT Badge */}
+            <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white font-extrabold text-sm tracking-wider font-heading shadow-inner">
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white font-extrabold text-xs tracking-wider font-heading shadow-inner">
                   KA
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-lg text-white font-heading leading-tight">
+                  <h3 className="font-extrabold text-base text-white font-heading leading-tight">
                     Kabila Audio
                   </h3>
-                  <p className="text-xs text-gray-300 font-medium font-sans">
+                  <p className="text-[11px] text-gray-300 font-medium font-sans">
                     Head Producer &amp; Audio Architect
                   </p>
                 </div>
               </div>
 
-              {/* LATEST TRACK Pill Badge */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-[11px] font-bold text-blue-200 shadow-sm">
-                <Radio className="w-3.5 h-3.5 text-blue-300 animate-pulse" />
-                <span>LATEST TRACK</span>
+              {/* Glowing VIRAL HIT Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-red-500/20 to-amber-500/20 border border-red-500/40 text-amber-300 text-xs font-bold shadow-[0_0_15px_rgba(239,68,68,0.3)] animate-pulse">
+                <Flame className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                <span>VIRAL HIT</span>
               </div>
             </div>
 
-            {/* Embedded Spotify Track */}
-            <div className="rounded-2xl overflow-hidden bg-black/50 border border-white/15 shadow-inner mb-5">
+            {/* PHASE 2: Live Playable Spotify Player iframe */}
+            <div className="rounded-xl overflow-hidden shadow-2xl border border-white/15 bg-black/40">
               <iframe
-                src="https://open.spotify.com/embed/track/3UBOmRHmkTbhKUeHzeRY2M?utm_source=generator&theme=0"
+                style={{ borderRadius: '12px' }}
+                src="https://open.spotify.com/embed/track/2WD3XM1dcrWbiHYm7F3qqB?utm_source=generator&theme=0"
                 width="100%"
                 height="152"
                 frameBorder="0"
                 allowFullScreen
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
-                title="Latest Track Spotify Player"
-                className="rounded-2xl"
+                title="Live Viral Track Spotify Player"
               />
             </div>
 
-            {/* Card Footer: Labels on left; Rating on right */}
-            <div className="flex items-center justify-between text-xs text-gray-300 font-sans pt-1">
-              <span>Universal Music • Sony • Warner</span>
-              <span className="text-blue-300 font-bold flex items-center gap-1 font-heading">
-                <Star className="w-3.5 h-3.5 fill-blue-300 text-blue-300" />
-                <span>5.0 Rating</span>
-              </span>
+            {/* PHASE 3: YouTube Prep Structural Container */}
+            <div className="pt-3 border-t border-white/10 space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-bold text-blue-300 uppercase tracking-wider flex items-center gap-1.5 text-[11px]">
+                  <Radio className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
+                  YouTube Music Video Prep
+                </span>
+                <span className="text-[10px] font-semibold text-gray-300 bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
+                  Upcoming 4K Slot
+                </span>
+              </div>
+
+              <div id="youtube-embed-prep" className="w-full h-24 rounded-2xl bg-black/50 border border-white/15 flex items-center justify-center relative overflow-hidden group hover:border-blue-400/40 transition-colors p-4">
+                <div className="flex items-center gap-3 relative z-10">
+                  <div className="w-9 h-9 rounded-full bg-red-600/30 border border-red-400/50 flex items-center justify-center text-red-200 group-hover:scale-110 transition-transform">
+                    <Play className="w-4 h-4 fill-current translate-x-0.5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white font-heading">
+                      Official Studio Behind-The-Scenes Video
+                    </p>
+                    <p className="text-[11px] text-gray-400 font-sans">
+                      Ready for 4K YouTube Video Embed Insertion
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

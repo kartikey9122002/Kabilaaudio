@@ -439,7 +439,7 @@ export default function AdminDashboardPage() {
           }`}
         >
           <Database className="w-4 h-4" />
-          <span>Sound Vault</span>
+          <span>Courses</span>
         </button>
 
         <button
@@ -962,7 +962,7 @@ export default function AdminDashboardPage() {
       )}
 
       {/* ==================================================== */}
-      {/* TAB 4 — SOUND VAULT MANAGER */}
+      {/* TAB 4 — COURSES MANAGER */}
       {/* ==================================================== */}
       {activeTab === 'vault' && (
         <div className="space-y-8 animate-in fade-in duration-300">
@@ -974,7 +974,7 @@ export default function AdminDashboardPage() {
               <div className="flex items-center gap-3">
                 <Database className="w-5 h-5 text-purple-400" />
                 <h2 className="text-xl font-extrabold font-heading">
-                  Publish Sound Vault Sample Pack
+                  Publish Course &amp; Sample Catalog
                 </h2>
               </div>
               <span className="text-xs text-purple-300 font-semibold bg-purple-500/10 px-3 py-1 rounded-full border border-purple-400/30">

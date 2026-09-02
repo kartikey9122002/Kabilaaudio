@@ -10,6 +10,7 @@ import {
   Database,
   Calendar,
   LogOut,
+  GraduationCap,
 } from 'lucide-react';
 import KabilaLogo from '@/components/KabilaLogo';
 
@@ -37,9 +38,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       icon: Music,
     },
     {
-      name: 'Sound Vault',
+      name: 'Courses',
       href: '/admin/vault',
-      icon: Database,
+      icon: GraduationCap,
     },
     {
       name: 'Bookings',

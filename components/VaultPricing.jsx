@@ -70,7 +70,7 @@ export default function VaultPricing() {
           Splice-Style Royalty-Free Library Membership
         </div>
         <h2 className="font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
-          SOUND VAULT <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400">MEMBERSHIP</span>
+          COURSE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400">MEMBERSHIP</span>
         </h2>
         <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
           Instant access to thousands of 100% royalty-free stems, analog synth loops, vocal chops, and custom drum samples.

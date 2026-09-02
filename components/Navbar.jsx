@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Sparkles, Menu, X, Music, Radio } from 'lucide-react';
+import { Sparkles, Menu, X, Music, Radio, GraduationCap } from 'lucide-react';
 
 import KabilaLogo from './KabilaLogo';
 
@@ -47,13 +47,13 @@ export default function Navbar() {
             Services
           </Link>
 
-          {/* Sound Vault in blue glass pill */}
+          {/* Courses in blue glass pill */}
           <Link
-            href="/sounds"
+            href="/courses"
             className="px-3.5 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-200 border border-indigo-400/40 hover:border-indigo-300 shadow-[0_0_15px_rgba(99,102,241,0.2)] flex items-center gap-1.5 transition-all hover:scale-105"
           >
-            <span className="text-indigo-300 text-xs">🎵</span>
-            <span>Sound Vault</span>
+            <GraduationCap className="w-3.5 h-3.5 text-indigo-300" />
+            <span>Courses</span>
           </Link>
 
           {/* Studio Hub in soft blue glass pill */}
@@ -126,11 +126,11 @@ export default function Navbar() {
             Services
           </Link>
           <Link
-            href="/sounds"
+            href="/courses"
             onClick={() => setMobileOpen(false)}
             className="px-4 py-2.5 rounded-2xl text-sm font-semibold bg-indigo-950/40 text-indigo-200 border border-indigo-400/30 flex items-center gap-2"
           >
-            <span>🎵</span> Sound Vault
+            <GraduationCap className="w-4 h-4 text-indigo-300" /> Courses
           </Link>
           <Link
             href="/studio"

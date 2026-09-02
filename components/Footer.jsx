@@ -95,8 +95,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/sounds" className="hover:text-blue-300 transition-colors flex items-center gap-1">
-                  Sound Vault Membership <ArrowUpRight className="w-3 h-3 opacity-60 text-blue-400" />
+                <Link href="/courses" className="hover:text-blue-300 transition-colors flex items-center gap-1">
+                  Courses &amp; Academy <ArrowUpRight className="w-3 h-3 opacity-60 text-blue-400" />
                 </Link>
               </li>
               <li>
